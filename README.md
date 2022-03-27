@@ -15,3 +15,19 @@ fn main() {
     .unwrap();
 }
 ```
+
+Assuming the following directory structure, the build script would produce the following:
+
+```
+my_dir
+├── file1.txt
+└── sub
+    └── file2.txt
+```
+
+```rust
+const VAR_NAME: &[(&str, &[u8])] = &[
+    ("my_dir/file1.txt", include_bytes!("my_dir/file1.txt")),
+    ("my_dir/sub/file2.txt", include_bytes!("my_dir/sub/file2.txt")),
+];
+```
